@@ -1,6 +1,6 @@
 Add library to project:
 - Put <b>app-release.aar</b> to module libs folder
-- Add repository inside main gradle.build  <br>
+- Add repositories inside main gradle.build  <br>
 ``` java
 allprojects {
     repositories {
@@ -13,7 +13,7 @@ allprojects {
     }
 }
 ```
-- Add dependency to <b>app-release.aar</b> inside module's gradle.build<br>
+- Add dependencies to <b>app-release.aar</b> inside module's gradle.build<br>
 ``` java
 dependencies {
     ...
@@ -23,11 +23,11 @@ dependencies {
 }
 ````
 
-How to use:<br>
-- Initialize ZCManager in place where you are planing to use it
+<b>How to use</b><br>
+- Initialize ACManager in place where you are planing to use it
 mACManager = new ACManager(context, boundRate).setDebug(isDebug); <br>
--- boundRate is 38400 in our case<br>
--- isDebug is false by default<br>
+-- <b>boundRate</b> is 38400 in our case<br>
+-- <b>isDebug</b> is false by default<br>
 - Create Broadcast receiver <br>
 ``` java
 private final BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
@@ -39,7 +39,7 @@ private final BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
     }
 };
 ```
-- Create intent filter, register Broadcast receiver and connect serial<br>
+- Create intent filter, register Broadcast receiver and connect to serial<br>
 ``` java
 @Override
 protected void onResume() {
@@ -54,7 +54,7 @@ protected void onResume() {
     }
 }
 ```
-- Don't forget unregister broadcast and do disconnect serial<br>
+- Don't forget unregister Broadcast receiever and do disconnect from serial<br>
 ``` java
 @Override
 protected void onPause() {
@@ -80,22 +80,22 @@ mACManager.getSpeedAndAngle(new ACManager.OnResponseListener() {
 });
 ```
 -- if response is null then something went wrong. Check Arduino setup.<br>
--- timeout - time that lib will wait for response from Arduino. If timed out then response will be null.<br> The best practice set timeout 10000 ms.<br>
+-- <b>timeout</b> - time that lib will wait for response from Arduino. If timed out then response will be null.<br> The best practice set timeout 10000 ms.<br>
 -- available commands: <br>
---- getSpeedAndAngle <br>
+--- <b>getSpeedAndAngle</b> <br>
 example of response: 
 ``` json 
 {"speedSensor":{"speed":"124.53", "time":"63"},"filtered_angle": {"X":"-43.00", "Y":"0.03", "Z":"0.00"}} 
 ```
---- getPower <br>
+--- <b>getPower</b> <br>
 example of response: 
 ``` json 
 {"powerSensor":{"V":"0.00", "A":"-1.00", "W":"-1.00", "Wh":"-1.00"}} 
 ```
---- sendCommand <br>
+--- <b>sendCommand</b> <br>
 in case of sendCommand first argument is String. Set<br>
---- "1" to get get Speed And Angle (getSpeedAndAngle is analog)<br>
---- "3" to get get Power (getPower is analog)<br>
+--- <b>"1"</b> to get get Speed And Angle (getSpeedAndAngle is analog)<br>
+--- <b>"3"</b> to get get Power (getPower is analog)<br>
 - Create <b>device_filter.xml</b> with Arduino Vender ID inside xml source folder <br>
 ``` xml
 <?xml version="1.0" encoding="utf-8"?>
