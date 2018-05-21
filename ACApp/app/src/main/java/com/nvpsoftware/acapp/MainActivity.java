@@ -10,9 +10,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.TextView;
-import com.sofment.aclibrary.ACManager;
-import com.sofment.aclibrary.Constants;
-import com.sofment.aclibrary.utils.LoggerUtil;
+import com.nvpsoftware.aclibrary.ACManager;
+import com.nvpsoftware.aclibrary.Constants;
+import com.nvpsoftware.aclibrary.utils.LoggerUtil;
 
 public class MainActivity extends AppCompatActivity implements OnClickListener {
 
