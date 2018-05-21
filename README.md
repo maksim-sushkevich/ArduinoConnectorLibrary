@@ -83,7 +83,15 @@ mACManager.getSpeedAndAngle(new ACManager.OnResponseListener() {
 -- timeout - time that lib will wait for response from Arduino. If timed out then response will be null.<br> The best practice set timeout 10000 ms.<br>
 -- available commands: <br>
 --- getSpeedAndAngle <br>
+example of response: 
+``` json 
+{"speedSensor":{"speed":"124.53", "time":"63"},"filtered_angle": {"X":"-43.00", "Y":"0.03", "Z":"0.00"}} 
+```
 --- getPower <br>
+example of response: 
+``` json 
+{"powerSensor":{"V":"0.00", "A":"-1.00", "W":"-1.00", "Wh":"-1.00"}} 
+```
 --- sendCommand <br>
 in case of sendCommand first argument is String. Set<br>
 --- "1" to get get Speed And Angle (getSpeedAndAngle is analog)<br>
