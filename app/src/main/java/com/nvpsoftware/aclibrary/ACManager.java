@@ -128,7 +128,11 @@ public class ACManager implements UsbSerialInterface.UsbReadCallback {
                     }
                 }
                 LoggerUtil.i("mStringBuilder: " + mStringBuilder);
-                requestItem.getOnResponseListener().onResponse(mStringBuilder != null ? mStringBuilder.toString() : null);
+                String tempResponse;
+                String response = mStringBuilder != null && (tempResponse = mStringBuilder.toString().trim()).length() > 0 ?
+                        tempResponse.substring(0, tempResponse.length()-1) : null;
+                LoggerUtil.i("response: " + response);
+                requestItem.getOnResponseListener().onResponse(response);
 
                 if (mQueue.size() > 0) {
                     mQueue.remove(0);
