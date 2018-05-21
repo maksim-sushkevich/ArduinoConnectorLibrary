@@ -1,6 +1,6 @@
 Add library to project:
 - Put <b>app-release.aar</b> to module libs folder
-- Add ropository inside main gradle.build  <br>
+- Add repository inside main gradle.build  <br>
 ``` java
 allprojects {
     repositories {
