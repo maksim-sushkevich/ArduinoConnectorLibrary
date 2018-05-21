@@ -28,7 +28,7 @@ How to use:<br>
 mACManager = new ACManager(context, boundRate).setDebug(isDebug); <br>
 -- boundRate is 38400 in our case<br>
 -- isDebug is false by default<br>
-- Create Broad cast receiver <br>
+- Create Broadcast receiver <br>
 ``` java
 private final BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
     @Override
@@ -39,7 +39,7 @@ private final BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
     }
 };
 ```
-- Create intent filter, register broad cast receiver and connect serial<br>
+- Create intent filter, register Broadcast receiver and connect serial<br>
 ``` java
 @Override
 protected void onResume() {
