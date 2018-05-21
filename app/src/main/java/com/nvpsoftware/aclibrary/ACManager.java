@@ -1,4 +1,4 @@
-package com.sofment.aclibrary;
+package com.nvpsoftware.aclibrary;
 
 import android.app.Activity;
 import android.app.PendingIntent;
@@ -9,7 +9,7 @@ import android.hardware.usb.UsbDeviceConnection;
 import android.hardware.usb.UsbManager;
 import com.felhr.usbserial.UsbSerialDevice;
 import com.felhr.usbserial.UsbSerialInterface;
-import com.sofment.aclibrary.utils.LoggerUtil;
+import com.nvpsoftware.aclibrary.utils.LoggerUtil;
 
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
@@ -17,14 +17,14 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static com.sofment.aclibrary.Constants.ACTION_USB_PERMISSION;
+import static com.nvpsoftware.aclibrary.Constants.ACTION_USB_PERMISSION;
 
 /**
  * project ACLibrary
- * package com.sofment.aclibrary
+ * package com.nvpsoftware.aclibrary
  *
  * Created by maxim on 5/20/18.
- * Copyright © 2018 Sofment Group. All rights reserved.
+ * Copyright © 2018 NVP Software. All rights reserved.
  */
 
 public class ACManager implements UsbSerialInterface.UsbReadCallback {
@@ -36,7 +36,7 @@ public class ACManager implements UsbSerialInterface.UsbReadCallback {
     private int mBoundRate;
     private int mVendorId;
     private StringBuilder mStringBuilder;
-    private boolean mIsResponseCompleted = false;
+    private boolean mIsResponseCompleted;
 
     private List<RequestItem> mQueue = new ArrayList<>();
 
@@ -56,7 +56,8 @@ public class ACManager implements UsbSerialInterface.UsbReadCallback {
         if (this.mContext == null) {
             throw new IllegalStateException("Activity can not be null");
         }
-        this.mUsbManager = (UsbManager) mContext.getSystemService(mContext.USB_SERVICE);
+        this.mUsbManager = (UsbManager) mContext.getSystemService(Context.USB_SERVICE);
+        mIsResponseCompleted = false;
     }
 
     public void connect() {

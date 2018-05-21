@@ -1,11 +1,11 @@
-package com.sofment.aclibrary;
+package com.nvpsoftware.aclibrary;
 
 /**
  * project ACLibrary
- * package com.sofment.aclibrary
+ * package com.nvpsoftware.aclibrary
  *
  * Created by maxim on 5/21/18.
- * Copyright © 2018 Sofment Group. All rights reserved.
+ * Copyright © 2018 NVP Software. All rights reserved.
  */
 
 public class RequestItem {

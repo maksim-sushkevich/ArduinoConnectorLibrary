@@ -1,4 +1,4 @@
-package com.sofment.aclibrary;
+package com.nvpsoftware.acapp;
 
 import org.junit.Test;
 

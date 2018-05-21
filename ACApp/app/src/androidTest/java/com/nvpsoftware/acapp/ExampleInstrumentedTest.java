@@ -1,4 +1,4 @@
-package com.sofment.aclibrary;
+package com.nvpsoftware.acapp;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("com.sofment.aclibrary", appContext.getPackageName());
+        assertEquals("com.nvpsoftware.acapp", appContext.getPackageName());
     }
 }
