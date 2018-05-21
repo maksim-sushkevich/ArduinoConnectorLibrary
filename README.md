@@ -82,12 +82,12 @@ mACManager.getSpeedAndAngle(new ACManager.OnResponseListener() {
 -- if response is null then something went wrong. Check Arduino setup.<br>
 -- timeout - time that lib will wait for response from Arduino. If timed out then response will be null.<br> The best practice set timeout 10000 ms.<br>
 -- available commands: <br>
---- getSpeedAndAngle
---- getPower
+--- getSpeedAndAngle <br>
+--- getPower <br>
 --- sendCommand <br>
-in case of sendCommand first argument is String. Set
----- "1" to get get Speed And Angle (getSpeedAndAngle is analog)
----- "3" to get get Power (getPower is analog)
+in case of sendCommand first argument is String. Set<br>
+--- "1" to get get Speed And Angle (getSpeedAndAngle is analog)<br>
+--- "3" to get get Power (getPower is analog)<br>
 - Create <b>device_filter.xml</b> with Arduino Vender ID inside xml source folder <br>
 ``` xml
 <?xml version="1.0" encoding="utf-8"?>
