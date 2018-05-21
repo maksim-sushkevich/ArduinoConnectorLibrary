@@ -1,7 +1,7 @@
 Add library to project:
 - Put <b>app-release.aar</b> to module libs folder
 - Add ropository inside main gradle.build  <br>
-```java
+``` java
 allprojects {
     repositories {
         ...
@@ -14,7 +14,7 @@ allprojects {
 }
 ```
 - Add dependency to <b>app-release.aar</b> inside module's gradle.build<br>
-```java
+``` java
 dependencies {
     ...
     implementation fileTree(dir: 'libs', include: ['*.jar'])
@@ -29,7 +29,7 @@ mACManager = new ACManager(context, boundRate).setDebug(isDebug); <br>
 -- boundRate is 38400 in our case<br>
 -- isDebug is false by default<br>
 - Create Broad cast receiver <br>
-```java
+``` java
 private final BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
     @Override
     public void onReceive(Context context, Intent intent) {
@@ -40,7 +40,7 @@ private final BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
 };
 ```
 - Create intent filter, register broad cast receiver and connect serial<br>
-```java
+``` java
 @Override
 protected void onResume() {
     super.onResume();
@@ -55,7 +55,7 @@ protected void onResume() {
 }
 ```
 - Don't forget unregister broadcast and do disconnect serial<br>
-```java
+``` java
 @Override
 protected void onPause() {
     super.onPause();
@@ -66,7 +66,7 @@ protected void onPause() {
 }
 ```
 - Add calls to get necessary info from Arduino anywhere you needed <br>
-```java
+``` java
 mACManager.getSpeedAndAngle(new ACManager.OnResponseListener() {
     @Override
     public void onResponse(final String response) {
@@ -89,7 +89,7 @@ in case of sendCommand first argument is String. Set
 ---- "1" to get get Speed And Angle (getSpeedAndAngle is analog)
 ---- "3" to get get Power (getPower is analog)
 - Create <b>device_filter.xml</b> with Arduino Vender ID inside xml source folder <br>
-```xml
+``` xml
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <usb-device vendor-id="9025" />
@@ -97,7 +97,7 @@ in case of sendCommand first argument is String. Set
 </resources>
 ```
 - Add intent filter and meta data inside activity block in AndroidManifest.xml<br>
-```xml
+``` xml
 <activity android:name=".MainActivity">
     <intent-filter>
         <action android:name="android.hardware.usb.action.USB_DEVICE_ATTACHED" />
