@@ -114,7 +114,10 @@ public class ACManager implements UsbSerialInterface.UsbReadCallback {
             public void run() {
                 mIsResponseCompleted = false;
                 LoggerUtil.i("mUsbSerialDevice: " + mUsbSerialDevice + ", command: " + requestItem.getCommand());
-                if (mUsbSerialDevice == null) return;
+                if (mUsbSerialDevice == null) {
+                    removeFromQueue();
+                    return;
+                }
                 mStringBuilder = new StringBuilder();
                 mUsbSerialDevice.write(requestItem.getCommand().getBytes());
                 long time = System.currentTimeMillis();
@@ -134,15 +137,23 @@ public class ACManager implements UsbSerialInterface.UsbReadCallback {
                 LoggerUtil.i("response: " + response);
                 requestItem.getOnResponseListener().onResponse(response);
 
-                if (mQueue.size() > 0) {
-                    mQueue.remove(0);
-                }
+                removeFromQueue();
 
-                if (mQueue.size() > 0) {
-                    doRequest(mQueue.get(0));
-                }
+                doNextRequest();
             }
         }).start();
+    }
+
+    private void doNextRequest() {
+        if (mQueue.size() > 0) {
+            doRequest(mQueue.get(0));
+        }
+    }
+
+    private void removeFromQueue() {
+        if (mQueue.size() > 0) {
+            mQueue.remove(0);
+        }
     }
 
     public void disconnect() {
