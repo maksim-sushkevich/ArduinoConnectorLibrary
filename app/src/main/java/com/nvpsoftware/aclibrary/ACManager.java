@@ -102,6 +102,12 @@ public class ACManager implements UsbSerialInterface.UsbReadCallback {
         sendCommand("1", onResponseListener);
     }
 
+    public void getFullInfo(OnResponseListener onResponseListener) {
+        if(onResponseListener == null)
+            throw new IllegalStateException("onResponseListener can not be null");
+        sendCommand("2", onResponseListener);
+    }
+
     public void getPower(OnResponseListener onResponseListener) {
         if(onResponseListener == null)
             throw new IllegalStateException("onResponseListener can not be null");

@@ -51,6 +51,7 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
         setContentView(com.nvpsoftware.acapp.R.layout.activity_main);
         findViewById(R.id.button).setOnClickListener(this);
         findViewById(R.id.button1).setOnClickListener(this);
+        findViewById(R.id.button2).setOnClickListener(this);
         mTextView = findViewById(R.id.textView);
         mACManager = new ACManager(this, 38400).setDebug(true);
     }
@@ -87,6 +88,10 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
             case R.id.button1:
                 mTextView.setText("Request of power info");
                 mACManager.getPower(mResponseListener);
+                break;
+            case R.id.button2:
+                mTextView.setText("Request of full info");
+                mACManager.getFullInfo(mResponseListener);
                 break;
         }
     }

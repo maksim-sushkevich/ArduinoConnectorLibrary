@@ -92,6 +92,11 @@ example of response:
 ``` json 
 {"powerSensor":{"V":"0.00", "A":"-1.00", "W":"-1.00", "Wh":"-1.00"}} 
 ```
+--- <b>getFullInfo</b><br>
+example of response: 
+``` json
+{"speed_sensor":{"speed":" 7.57", "time":"1036"}, "power_sensor":{"v":"0.00", "a":"-1.00", "w":"-1.00", "wh":"-1.00"}, "filtered_angle":{"x":"0.59", "y":"-5.83", "z":"-0.15"}}
+```
 --- <b>sendCommand</b> <br>
 in case of sendCommand first argument is String. Set<br>
 --- <b>"1"</b> to get get Speed And Angle (getSpeedAndAngle is analog)<br>
