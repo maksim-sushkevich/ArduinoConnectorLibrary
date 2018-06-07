@@ -100,7 +100,9 @@ example of response:
 --- <b>sendCommand</b> <br>
 in case of sendCommand first argument is String. Set<br>
 --- <b>"1"</b> to get get Speed And Angle (getSpeedAndAngle is analog)<br>
+--- <b>"2"</b> to get get Speed, Angle and Power Meter info (getFullInfo is analog)<br>
 --- <b>"3"</b> to get get Power (getPower is analog)<br>
+--- <b>"4"</b> to calibrate the angle when angle of the treadmill is 0 (have no analogs)<br>
 - Create <b>device_filter.xml</b> with Arduino Vender ID inside xml source folder <br>
 ``` xml
 <?xml version="1.0" encoding="utf-8"?>
